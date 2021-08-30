@@ -3,7 +3,7 @@ import sys
 
 import pyxel
 
-from blocks import Grass, Bedrock
+from blocks import Grass, Bedrock, Tree
 from blocks.air import Air
 from entities import Player
 
@@ -21,8 +21,8 @@ class World:
         # デバッグ
         self.setBlock(Grass(0, 0, self))
         self.setBlock(Grass(0, 1, self))
-        self.setBlock(Grass(1, 0, self))
-        self.setBlock(Grass(1, 1, self))
+        self.setBlock(Tree(1, 0, self))
+        self.setBlock(Tree(1, 1, self))
         self.setBlock(Bedrock(5, 5, self))
         self.setBlock(Bedrock(5, 6, self))
         self.setBlock(Bedrock(6, 5, self))
