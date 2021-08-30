@@ -10,7 +10,7 @@ from entities import Player
 
 class World:
     WIDTH = 32
-    HEIGHT = 32
+    HEIGHT = 28
 
     def __init__(self):
         # ワールド生成
