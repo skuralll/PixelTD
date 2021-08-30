@@ -9,24 +9,23 @@ from entities import Player
 
 
 class World:
+    WIDTH = 32
+    HEIGHT = 32
 
     def __init__(self):
         # ワールド生成
         self.blocks = []
-        for x in range(32):
+        for x in range(self.WIDTH):
             row = []
-            for y in range(32):
+            for y in range(self.HEIGHT):
                 row.append(Air(x, y, self))
             self.blocks.append(row)
         # デバッグ
-        self.setBlock(Grass(0, 0, self))
-        self.setBlock(Grass(0, 1, self))
-        self.setBlock(Tree(1, 0, self))
-        self.setBlock(Tree(1, 1, self))
-        self.setBlock(Bedrock(5, 5, self))
-        self.setBlock(Bedrock(5, 6, self))
-        self.setBlock(Bedrock(6, 5, self))
-        self.setBlock(Bedrock(6, 6, self))
+        for x in range(self.WIDTH):
+            for y in range(self.HEIGHT):
+                self.setBlock(Grass(x, y, self))
+                if random.randint(0, 20) == 1:
+                    self.setBlock(Tree(x, y, self))
         # エンティティ生成
         self.entities = []
         self.entities.append(Player(0, 0, self))  # プレイヤー生成
@@ -46,7 +45,7 @@ class World:
             entity.draw()
 
     def getBlock(self, x: int, y: int):
-        if x < 0 or y < 0 or 31 < x or 31 < y:
+        if x < 0 or y < 0 or self.WIDTH <= x or self.HEIGHT <= y:
             print('Error: position is out of range (pls 0~31)', file=sys.stderr)
         return self.blocks[x][y]
 
@@ -64,7 +63,7 @@ class World:
             for iy in range(3):
                 posX = x + ix - 1
                 posY = y + iy - 1
-                if 0 <= posX <= 31 and 0 <= posY <= 31:
+                if 0 <= posX < self.WIDTH and 0 <= posY < self.HEIGHT:
                     aroundBlocks.append(self.blocks[posX][posY])
         return aroundBlocks
 
