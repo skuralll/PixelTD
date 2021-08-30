@@ -16,19 +16,19 @@ class Player(Entity):
         if pyxel.btn(pyxel.KEY_A) or pyxel.btn(pyxel.KEY_LEFT):
             self.direction = 3
             if self.x > 0:
-                self.motionX -= 0.125
+                self.motionX -= 0.25
         if pyxel.btn(pyxel.KEY_D) or pyxel.btn(pyxel.KEY_RIGHT):
             self.direction = 1
             if self.x < 31:
-                self.motionX += 0.125
+                self.motionX += 0.25
         if pyxel.btn(pyxel.KEY_S) or pyxel.btn(pyxel.KEY_DOWN):
             self.direction = 2
             if self.y < 31:
-                self.motionY += 0.125
+                self.motionY += 0.25
         if pyxel.btn(pyxel.KEY_W) or pyxel.btn(pyxel.KEY_UP):
             self.direction = 0
             if self.y > 0:
-                self.motionY -= 0.125
+                self.motionY -= 0.25
         super().update()
 
     def draw(self):

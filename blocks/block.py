@@ -2,17 +2,14 @@ from mymath import Vector
 from mymath.aabb import AABB
 
 
-class Block(Vector):
+class Block(AABB):
 
     TEXTURE = [0, 0]
 
     def __init__(self, x, y, world):
-        super().__init__(x, y)
+        super().__init__(x, y, 1, 1)
         self.world = world
         self.passable = True
-        self.width = 1
-        self.height = 1
-        self.aabb = AABB(x, y, self.width, self.height)
 
     def getTexturePos(self):
         return self.TEXTURE

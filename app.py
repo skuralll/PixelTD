@@ -7,7 +7,7 @@ class App:
 
     def __init__(self):
         self.game = None
-        pyxel.init(256, 256, caption="Hello Pyxel")
+        pyxel.init(256, 256, caption="SurvivalGame")
         # リソース読み込み
         pyxel.load("my_resource.pyxres")
 
