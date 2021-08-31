@@ -46,10 +46,12 @@ class World:
 
     def getBlock(self, x: int, y: int):
         if x < 0 or y < 0 or self.WIDTH <= x or self.HEIGHT <= y:
-            print('Error: position is out of range (pls 0~31)', file=sys.stderr)
+            print('Error: position is out of range', file=sys.stderr)
         return self.blocks[x][y]
 
     def setBlock(self, block, x=None, y=None):
+        if block.x < 0 or block.y < 0 or self.WIDTH <= block.x or self.HEIGHT <= block.y:
+            return
         if x is None or y is None:
             self.blocks[block.x][block.y] = block
         else:
