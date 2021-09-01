@@ -42,6 +42,7 @@ class InGameUI(UI):
                 pyxel.blt(inv_base_x + i*11 + 1, inv_base_y + j*11 + 1, 0, player.inventory.contents[i * 2 + j].TEXTURE[0], player.inventory.contents[i * 2 + j].TEXTURE[1], 8, 8, 0)
         pyxel.blt(inv_base_x + int(player.inventory.holdIndex / 2) * 11, inv_base_y + int(player.inventory.holdIndex % 2) * 11, 0, 128, 16, 10, 10, 0)
         pyxel.line(base_x + 116, base_y + 14, base_x + 180, base_y + 14, pyxel.COLOR_WHITE)
-        pyxel.text(base_x + 117, inv_base_y + 2, player.inventory.getItemInHand().getName(), pyxel.COLOR_WHITE)
+        pyxel.blt(base_x + 117, inv_base_y + 1, 0, player.inventory.getItemInHand().TEXTURE[0], player.inventory.getItemInHand().TEXTURE[1], 8, 8, 0)
+        pyxel.text(base_x + 127, inv_base_y + 3, ": " + player.inventory.getItemInHand().getName(), pyxel.COLOR_WHITE)
         # 線
         pyxel.line(base_x + 184, base_y + 4, base_x + 184, base_y + 24, pyxel.COLOR_WHITE)

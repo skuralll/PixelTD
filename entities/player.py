@@ -6,7 +6,7 @@ from blocks.air import Air
 from entities import Entity
 from inventory import Inventory
 from inventory.playerinventory import PlayerInventory
-from item import ItemSword
+from item import ItemSword, ItemAir
 from mymath import Direction
 
 
@@ -16,7 +16,7 @@ class Player(Entity):
         super().__init__(x, y, world)
         self.direction = 2
         self.maxHealth = 1000
-        self.health = 1000
+        self.health = 1000 
         self.maxCalorie = 1000
         self.calorie = 1000
         self.inTask = False

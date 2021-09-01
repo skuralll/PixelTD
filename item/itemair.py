@@ -3,7 +3,7 @@ from item import Item
 
 class ItemAir(Item):
 
-    NAME = "Air"
+    NAME = ""
     TEXTURE = [128, 32]
 
     def __init__(self):
