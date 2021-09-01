@@ -1,3 +1,10 @@
 class Item:
+
+    NAME = ""
+    TEXTURE = [128, 32]
+
     def __init__(self):
-        pass
+        self.name = self.NAME
+
+    def getName(self):
+        return self.name

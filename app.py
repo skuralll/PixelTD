@@ -1,6 +1,7 @@
 import pyxel
 
 from gamecore import GameCore
+from ui import UIManager
 
 
 class App:
@@ -20,7 +21,9 @@ class App:
             self.game.update()
         if pyxel.btnp(pyxel.KEY_Q):
             pyxel.quit()
+        UIManager.update()
 
     def draw(self):
         if not (self.game is None):
             self.game.draw()
+        UIManager.draw()
