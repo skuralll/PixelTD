@@ -6,7 +6,7 @@ from blocks.air import Air
 from entities import Entity
 from inventory import Inventory
 from inventory.playerinventory import PlayerInventory
-from item import ItemSword, ItemAir
+from item import ItemSword, ItemAir, ItemAxe, ItemShovel
 from mymath import Direction
 
 
@@ -22,6 +22,8 @@ class Player(Entity):
         self.inTask = False
         self.inventory = PlayerInventory()
         self.inventory.setItem(ItemSword(), 0)
+        self.inventory.setItem(ItemAxe(), 1)
+        self.inventory.setItem(ItemShovel(), 2)
 
     def update(self):
         # 歩行
